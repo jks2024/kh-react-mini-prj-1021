@@ -40,7 +40,7 @@ const SignupS1 = () =>{
         //const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
         const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
         const passwordCurrent = e.target.value ;
-        setInputPw(passwordCurrent)
+        setInputPw(passwordCurrent);
         if (!passwordRegex.test(passwordCurrent)) {
             setPwMessage('숫자+영문자 조합으로 8자리 이상 입력해주세요!')
             setIsPw(false)
@@ -91,14 +91,14 @@ const SignupS1 = () =>{
                     {inputId.length > 0 && <span className={`message ${isId ? 'success' : 'error'}`}>{idMessage}</span>}
             </div>
             <div className="item2">
-                <input className="input" placeholder="패스워드" value ={inputPw} onChange={onChangePw}/>
+                <input className="input" type="password" placeholder="패스워드" value ={inputPw} onChange={onChangePw}/>
             </div>
             <div className="hint">
                     {inputPw.length > 0 && (
                     <span className={`message ${isPw ? 'success' : 'error'}`}>{pwMessage}</span>)}
             </div>
             <div className="item2">
-                <input className="input" placeholder="패스워드 확인" value ={inputConPw} onChange={onChangeConPw}/>
+                <input className="input" type="password" placeholder="패스워드 확인" value ={inputConPw} onChange={onChangeConPw}/>
             </div>
             <div className="hint">
                     {inputPw.length > 0 && (

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import alarmGo from '../images/bell.png'
 import receiptGo from '../images/receipt.png'
 import nowGo from '../images/short_cut.png'
@@ -6,6 +6,7 @@ import logoWhite from '../images/tier_logo_white.png'
 import imgPhone from '../images/ned_phone.png'
 import qrPay from '../images/qr_button_black.png'
 import { Link } from "react-router-dom";
+import { MyContext } from '../context/UserInfo';
 
 const GoHome = () => {
     
@@ -33,8 +34,8 @@ const GoHome = () => {
 
     const onClickHistory = () => {
         console.log("History로 이동");
+        window.location.replace("/History");
     }
-
 
     return(
         <div>

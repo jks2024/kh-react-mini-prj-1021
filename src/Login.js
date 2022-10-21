@@ -1,10 +1,17 @@
 import React, {useState, useEffect, useContext } from 'react';
 import { Link } from "react-router-dom";
 import './App.css';
+import axios from "axios";
 import imgLogo from './images/tier_logo.png'
 import imgBottom from './images/nedbank_s.png'
 import KhApi from './api/khApi';
 import Modal from './util/Modal.js';
+import { MyContext } from './context/UserInfo'
+
+const loginObj = {
+    id: "",
+    pwd: ""
+}
 
 const Login = () => {
     // 키보드 입력
@@ -21,6 +28,9 @@ const Login = () => {
 
     // 자동 로그인
     const [isAuto, setIsAuto] = useState(true);
+
+    // const { memName, setMemName } = useContext(MyContext);
+    // console.log(memName);
 
     // 팝업
     const [modalOpen, setModalOpen] = useState(false);
@@ -75,7 +85,16 @@ const Login = () => {
         //     console.log("아이디 및 패스워드를 재확인해 주세요.")
         //     setModalOpen(true);
         // }
-        window.location.replace("/home");
+        try {
+            loginObj.id = inputId;
+            loginObj.pwd = inputPw;
+
+            const res = await axios.post("http://localhost:8100/kh_first_ex/LoginServlet", loginObj, 'application/json');
+            console.log(res.data);
+            //window.location.replace("/home");
+        } catch (e) {
+            console.log("로그인 에러..");
+        }
     }
 
     return (

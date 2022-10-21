@@ -1404,3 +1404,8 @@ flex-direction: column;
   font-family: poppins;
   color: #ffffff;
 }
+
+.foot-right {
+  background-color: grey;
+  grid-area: foot-right;
+}
