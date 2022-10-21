@@ -29,9 +29,6 @@ const Login = () => {
     // 자동 로그인
     const [isAuto, setIsAuto] = useState(true);
 
-    // const { memName, setMemName } = useContext(MyContext);
-    // console.log(memName);
-
     // 팝업
     const [modalOpen, setModalOpen] = useState(false);
     const openModal = () => {
@@ -91,7 +88,17 @@ const Login = () => {
 
             const res = await axios.post("http://localhost:8100/kh_first_ex/LoginServlet", loginObj, 'application/json');
             console.log(res.data);
-            //window.location.replace("/home");
+            console.log(res.status);
+            console.log(res.data.result);
+
+            if(res.data.result === "OK") {
+                window.localStorage.setItem("userId", inputId);
+                window.localStorage.setItem("userPw", inputPw);
+                //window.location.replace("/home");
+            } else {
+                setModalOpen(true);
+            }
+            
         } catch (e) {
             console.log("로그인 에러..");
         }
