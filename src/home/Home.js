@@ -37,6 +37,11 @@ const GoHome = () => {
         window.location.replace("/History");
     }
 
+    const onClickMember = () => {
+        console.log("회원정보로 이동");
+        window.location.replace("/MemberInfo");
+    }
+
     return(
         <div>
             <div className="container">
@@ -53,9 +58,9 @@ const GoHome = () => {
                         <span className="linkwallet1">There is no wallet connected.</span>
                         <span className="linkwallet2">+ Add Wallet</span>
                 </div>
-                <div className="EFT" onClick={onClickEFT}>
+                <div className="EFT" onClick={onClickMember}>
                     <img src={nowGo} className="imgEFT" alt="GoEFT" />
-                    <span className="EFTtypo">EFT</span>
+                    <span className="EFTtypo">회원정보 조회</span>
                 </div>
                 <div className="ATM" onClick={onClickATM}>
                     <img src={receiptGo} className="imgATM" alt="GoATM" />
@@ -70,8 +75,8 @@ const GoHome = () => {
                     <span className="QRtypo">QR PAYMENT</span>
                 </div>
                 <div className="history" >
-                    <span className="historytypo">HISTORY</span>
-                    <div className="historyinfo" onClick={onClickHistory}>
+                    <span className="historytypo">회원정보조회</span>
+                    <div className="historyinfo" onClick={onClickMember}>
                         <span className="historyinfotypo">No history</span>
                     </div>
                 </div>

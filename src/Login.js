@@ -86,7 +86,7 @@ const Login = () => {
             loginObj.id = inputId;
             loginObj.pwd = inputPw;
 
-            const res = await axios.post("http://localhost:8100/kh_first_ex/LoginServlet", loginObj, 'application/json');
+            const res = await axios.post("http://localhost:8111/jdbc_test/LoginServlet", loginObj, 'application/json');
             console.log(res.data);
             console.log(res.status);
             console.log(res.data.result);
@@ -94,12 +94,13 @@ const Login = () => {
             if(res.data.result === "OK") {
                 window.localStorage.setItem("userId", inputId);
                 window.localStorage.setItem("userPw", inputPw);
-                //window.location.replace("/home");
+                window.location.replace("/home");
             } else {
                 setModalOpen(true);
             }
             
         } catch (e) {
+            setModalOpen(true);
             console.log("로그인 에러..");
         }
     }

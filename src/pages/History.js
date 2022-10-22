@@ -49,7 +49,7 @@ const History = () => {
 
         try {
             // 서버에 대한 요청을 비동기로 처리 함
-            const res = await axios.post("http://localhost:8100/kh_first_ex/MemberReg", memberObj, 'application/json');
+            const res = await axios.post("http://localhost:8111/jdbc_test/member", memberObj, 'application/json');
             //const res = KhApi.userLogin(111, 11);
             console.log(res.data[0]);
             console.log(res.data[1]);
