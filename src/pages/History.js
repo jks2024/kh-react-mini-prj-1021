@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import KhApi from '../api/khApi';
 
-
 const memberObj = {
     id: "",
     pwd: "",
@@ -51,16 +50,12 @@ const History = () => {
             // 서버에 대한 요청을 비동기로 처리 함
             const res = await axios.post("http://localhost:8111/jdbc_test/member", memberObj, 'application/json');
             //const res = KhApi.userLogin(111, 11);
-            console.log(res.data[0]);
-            console.log(res.data[1]);
-            console.log(res.data[2]);
             setResData(res.data);
 
         } catch (e) {
             console.log(e);
         }
     }
-
 
     return (
         <div>

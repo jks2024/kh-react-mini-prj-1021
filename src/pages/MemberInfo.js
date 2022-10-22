@@ -41,12 +41,18 @@ const MemberInfo = () => {
         text-align: center;
     `;
 
+    const regCmd = {
+        cmd : "MemberInfo"
+    }
+
 
     useEffect(() => {
+        
         const memberData = async () => {
             setLoading(true);
             try {
-                const response = await axios.post("http://localhost:8111/jdbc_test/member", "GET", 'application/json');
+                regCmd.cmd = "MemberInfo";
+                const response = await axios.post("http://localhost:8111/jdbc_test/member",  regCmd, 'application/json');
                 setMemberInfo(response.data);
                 console.log(response.data)
             } catch (e) {
