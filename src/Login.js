@@ -117,7 +117,7 @@ const Login = () => {
                     <Modal open={modalOpen} close={closeModal} header="오류">아이디 및 패스워드를 재확인해 주세요.</Modal>
                 </div>
                 <div className="signup">
-                    <Link to="/SignupS1" className="link_style">
+                    <Link to="/Signup" className="link_style">
                         <span>Sign Up</span>
                     </Link>
                 </div>

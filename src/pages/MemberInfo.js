@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import KhApi from '../api/khApi'
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import imgHome from '../images/home_button.png'
+import '../App.css'
 
 const MemberInfo = () => {
     const [memberInfo, setMemberInfo] = useState('');
@@ -74,6 +77,10 @@ const MemberInfo = () => {
                     </tr>
                 ))}
             </MemberList>
+            <Link to="/home" className="link-box">
+                <img className="link-img" src={imgHome} alt="HOME" />
+            <p>HOME으로 이동</p>
+          </Link>
         </MemberListBlock>
     );
 }

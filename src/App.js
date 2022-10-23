@@ -1,8 +1,8 @@
 import './App.css';
 import Login from './Login';
-import SignupS1 from './signup/Signup';
+import Signup from './signup/Signup';
 import GoHome from './home/Home';
-import History from './pages/History';
+import MemberReg from './pages/MemberReg';
 import MemberInfo from './pages/MemberInfo';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { MyContext } from './context/UserInfo';
@@ -15,10 +15,10 @@ function App() {
       <Router>
         <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/SignupS1" element={<SignupS1 />} />
+            <Route path="/Signup" element={<Signup />} />
             <Route path="/Home" element={<GoHome />} />
-            <Route path="/History" element={<History />} />
             <Route path="/MemberInfo" element={<MemberInfo />} />
+            <Route path="/MemberReg" element={<MemberReg />} />
         </Routes>
       </Router>
     </MyContext.Provider>

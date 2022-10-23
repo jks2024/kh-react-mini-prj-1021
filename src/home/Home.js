@@ -1,12 +1,9 @@
-import React, {useState, useEffect, useContext} from 'react';
 import alarmGo from '../images/bell.png'
 import receiptGo from '../images/receipt.png'
 import nowGo from '../images/short_cut.png'
 import logoWhite from '../images/tier_logo_white.png'
 import imgPhone from '../images/ned_phone.png'
 import qrPay from '../images/qr_button_black.png'
-import { Link } from "react-router-dom";
-import { MyContext } from '../context/UserInfo';
 
 const GoHome = () => {
     
@@ -18,9 +15,9 @@ const GoHome = () => {
         window.location.replace("/GoEFT");
     }
 
-    const onClickATM = () => {
-        console.log("ATM으로 이동");
-        window.location.replace("/GoATM");
+    const onClickMemberReg = () => {
+        console.log("회원 가입으로 이동");
+        window.location.replace("/Signup");
     }
 
     const onClickPeer = () => {
@@ -30,11 +27,6 @@ const GoHome = () => {
 
     const onClickQRpay = () => {
         console.log("QRpay로 이동");
-    }
-
-    const onClickHistory = () => {
-        console.log("History로 이동");
-        window.location.replace("/History");
     }
 
     const onClickMember = () => {
@@ -62,9 +54,9 @@ const GoHome = () => {
                     <img src={nowGo} className="imgEFT" alt="GoEFT" />
                     <span className="EFTtypo">회원정보 조회</span>
                 </div>
-                <div className="ATM" onClick={onClickATM}>
-                    <img src={receiptGo} className="imgATM" alt="GoATM" />
-                    <span className="ATMtypo">ATM</span>
+                <div className="ATM" onClick={onClickMemberReg}>
+                    <img src={receiptGo} className="imgATM" alt="onClickMemberReg" />
+                    <span className="ATMtypo">회원추가 기능(회원가입)</span>
                 </div>
                 <div className="Peer" onClick={onClickPeer}>
                     <img src={nowGo} className="imgPeer" alt="GoPeer" />
