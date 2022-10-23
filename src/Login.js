@@ -1,17 +1,10 @@
-import React, {useState, useEffect, useContext } from 'react';
+import React, {useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import './App.css';
-import axios from "axios";
 import imgLogo from './images/tier_logo.png'
 import imgBottom from './images/nedbank_s.png'
 import KhApi from './api/khApi';
 import Modal from './util/Modal.js';
-import { MyContext } from './context/UserInfo'
-
-const loginObj = {
-    id: "",
-    pwd: ""
-}
 
 const Login = () => {
     // 키보드 입력
@@ -57,7 +50,6 @@ const Login = () => {
         }
     }
     const onChangePw = (e) => {
-        //const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
         const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
         const passwordCurrent = e.target.value ;
         setInputPw(passwordCurrent)
@@ -70,23 +62,9 @@ const Login = () => {
         }        
     }
     const onClickLogin = async() => {
-        // let result = await KhApi.userLogin(inputId, inputPw);
-        // console.log(result.data);
-        // if (result.data.Code === "00") {
-        //     console.log("정상적으로 로그인 되었습니다. 메인으로 이동 합니다.")
-        //     window.localStorage.setItem("userId", inputId);
-        //     window.localStorage.setItem("userPw", inputPw);
-        //     window.location.replace("/home");
-
-        // } else {
-        //     console.log("아이디 및 패스워드를 재확인해 주세요.")
-        //     setModalOpen(true);
-        // }
         try {
-            loginObj.id = inputId;
-            loginObj.pwd = inputPw;
-
-            const res = await axios.post("http://localhost:8111/jdbc_test/LoginServlet", loginObj, 'application/json');
+            // 로그인을 위한 axios 호출
+            const res = await KhApi.userLogin(inputId, inputPw);
             console.log(res.data);
             console.log(res.status);
             console.log(res.data.result);

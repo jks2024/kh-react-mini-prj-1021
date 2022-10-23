@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import KhApi from '../api/khApi'
 import styled from 'styled-components';
 
 const MemberInfo = () => {
@@ -41,18 +41,12 @@ const MemberInfo = () => {
         text-align: center;
     `;
 
-    const regCmd = {
-        cmd : "MemberInfo"
-    }
-
-
     useEffect(() => {
         
         const memberData = async () => {
             setLoading(true);
             try {
-                regCmd.cmd = "MemberInfo";
-                const response = await axios.post("http://localhost:8111/jdbc_test/member",  regCmd, 'application/json');
+                const response = await KhApi.memberInfo();
                 setMemberInfo(response.data);
                 console.log(response.data)
             } catch (e) {

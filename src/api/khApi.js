@@ -1,20 +1,31 @@
 import axios from "axios";
 const HEADER = 'application/json';
-const KH_DOMAIN = "http://localhost:8090/jdbc_test/MemberReg";
+const KH_DOMAIN = "http://localhost:8111/jdbc_test/";
 
 const KhApi = {
+    
     userLogin: async function(id, pw) {
-        let bodyContent = "test";
-        return await axios.post(KH_DOMAIN, bodyContent, 'application/json');
+        const loginObj = {
+            id: id,
+            pwd: pw
+        }
+        return await axios.post(KH_DOMAIN + "LoginServlet", loginObj, HEADER);
     },
     memberInfo: async function() {
-        let bodyContent = {
-
+        const regCmd = {
+            cmd : "MemberInfo"
         }
-        let reqOption = {url: KH_DOMAIN, method: "POST", Headers:HEADER, data: bodyContent}
-        return await axios.request(reqOption);
+        return await axios.post(KH_DOMAIN + "member", regCmd, HEADER);
+    },
+    memberReg: async function(id, pwd, name, mail) {
+        const memberObj = {
+            id: id,
+            pwd: pwd,
+            name: name,
+            phone: mail
+        };
+        return await axios.post(KH_DOMAIN+"memberReg", memberObj, HEADER);
     }
-
 
 }
 
