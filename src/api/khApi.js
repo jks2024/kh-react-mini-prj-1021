@@ -1,6 +1,6 @@
 import axios from "axios";
 const HEADER = 'application/json';
-const KH_DOMAIN = "http://localhost:8100/kh_first_ex/";
+const KH_DOMAIN = "http://localhost:8100/kh_mini_ex/";
 
 const KhApi = {
     // 로그인 기능
@@ -16,7 +16,7 @@ const KhApi = {
         const regCmd = {
             cmd : "MemberInfo"
         }
-        return await axios.post(KH_DOMAIN + "member", regCmd, HEADER);
+        return await axios.post(KH_DOMAIN + "MemberServlet", regCmd, HEADER);
     },
     // 회원 가입
     memberReg: async function(id, pwd, name, mail) {
@@ -26,14 +26,14 @@ const KhApi = {
             name: name,
             mail: mail
         };
-        return await axios.post(KH_DOMAIN + "memberReg", memberObj, HEADER);
+        return await axios.post(KH_DOMAIN + "MemberRegServlet", memberObj, HEADER);
     },
     // 회원 가입 여부 확인
     memberRegCheck: async function(id) {
         const regCheck = {
             id: id,
         }
-        return await axios.post(KH_DOMAIN + "memberCheck", regCheck, HEADER);
+        return await axios.post(KH_DOMAIN + "MemberCheck", regCheck, HEADER);
     }
 
 }

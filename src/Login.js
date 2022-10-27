@@ -66,7 +66,7 @@ const Login = () => {
         try {
             // 로그인을 위한 axios 호출
             const res = await KhApi.userLogin(inputId, inputPw);
-            console.log(res.data.result);
+            console.log(res.data);
            
             if(res.data.result === "OK") {
                 window.localStorage.setItem("userId", inputId);
