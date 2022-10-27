@@ -1,14 +1,31 @@
+import React, { useState } from 'react';
 import alarmGo from '../images/bell.png'
 import receiptGo from '../images/receipt.png'
 import nowGo from '../images/short_cut.png'
 import logoWhite from '../images/tier_logo_white.png'
 import imgPhone from '../images/ned_phone.png'
 import qrPay from '../images/qr_button_black.png'
+import Modal from '../util/Modal'
+import KhApi from '../api/khApi';
 
 const GoHome = () => {
 
     const localId = window.localStorage.getItem("userId");
     const localPw = window.localStorage.getItem("userPw");
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
+    const confirmModal = async() => {
+        setModalOpen(false);
+        const memberReg = await KhApi.memberDelete(localId);
+        console.log(memberReg.data.result);
+        if(memberReg.data.result === "OK") {
+            window.location.replace("/");
+        }
+    };
     
     const onClickWallet = async() => {
     }
@@ -23,9 +40,8 @@ const GoHome = () => {
         window.location.replace("/Signup");
     }
 
-    const onClickPeer = () => {
-        console.log("Peer로 이동");
-        window.location.replace("/GoPeer");
+    const onClickMemberDelete = () => {
+        setModalOpen(true);
     }
 
     const onClickQRpay = () => {
@@ -61,9 +77,9 @@ const GoHome = () => {
                     <img src={receiptGo} className="imgATM" alt="onClickMemberReg" />
                     <span className="ATMtypo">회원추가 기능(회원가입)</span>
                 </div>
-                <div className="Peer" onClick={onClickPeer}>
+                <div className="Peer" onClick={onClickMemberDelete}>
                     <img src={nowGo} className="imgPeer" alt="GoPeer" />
-                    <span className="Peertypo">PEER RO PEER</span>
+                    <span className="Peertypo">회원 탈퇴</span>
                 </div>
                 <div className="QR" onClick={onClickQRpay}>
                     <img src={qrPay} className="imgQrblack" alt="GoQrpay" />
@@ -74,6 +90,7 @@ const GoHome = () => {
                    <p>회원 패스워드 : {localPw}</p>
                 </div>
             </div>
+            {modalOpen && <Modal open={modalOpen} confirm={confirmModal} close={closeModal} type={true} header="확인">정말 탈퇴하시겠습니까?</Modal>}
         </div>
     )
 };

@@ -3,20 +3,24 @@ import '../App';
 import './Modal.css';
 
 const Modal = (props) => {
-    const { open, close, header } = props;
+    const { open, confirm, close, type, header } = props;
     return (
         <div className={open ? 'openModal modal' : 'modal'}>
             {open && 
                 <section>
                     <header>
                         {header}
-                        <button className='close' onClick={close}>
+                        <button onClick={confirm}>
+                            &times;
+                        </button>
+                        <button onClick={close}>
                             &times;
                         </button>
                     </header>
                     <main>{props.children}</main>
                     <footer>
-                        <button className='close' onClick={close}>close</button>
+                        {type && <button onClick={confirm}>확인</button>}
+                        <button onClick={close}>취소</button>
                     </footer>
                 </section>
             }
