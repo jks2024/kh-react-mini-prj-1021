@@ -9,7 +9,6 @@ import Modal from '../util/Modal'
 import KhApi from '../api/khApi';
 
 const GoHome = () => {
-
     const localId = window.localStorage.getItem("userId");
     const localPw = window.localStorage.getItem("userPw");
     const [modalOpen, setModalOpen] = useState(false);
@@ -24,6 +23,8 @@ const GoHome = () => {
         console.log(memberReg.data.result);
         if(memberReg.data.result === "OK") {
             window.location.replace("/");
+        } else {
+
         }
     };
     
@@ -75,7 +76,7 @@ const GoHome = () => {
                 </div>
                 <div className="ATM" onClick={onClickMemberReg}>
                     <img src={receiptGo} className="imgATM" alt="onClickMemberReg" />
-                    <span className="ATMtypo">회원추가 기능(회원가입)</span>
+                    <span className="ATMtypo">회원 추가</span>
                 </div>
                 <div className="Peer" onClick={onClickMemberDelete}>
                     <img src={nowGo} className="imgPeer" alt="GoPeer" />

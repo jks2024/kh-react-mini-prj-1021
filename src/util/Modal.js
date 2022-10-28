@@ -10,9 +10,6 @@ const Modal = (props) => {
                 <section>
                     <header>
                         {header}
-                        <button onClick={confirm}>
-                            &times;
-                        </button>
                         <button onClick={close}>
                             &times;
                         </button>
