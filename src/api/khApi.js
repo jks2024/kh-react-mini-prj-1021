@@ -12,9 +12,10 @@ const KhApi = {
         return await axios.post(KH_DOMAIN + "LoginServlet", loginObj, HEADER);
     },
     // 회원 정보 조회
-    memberInfo: async function() {
+    memberInfo: async function(id) {
         const regCmd = {
-            cmd : "MemberInfo"
+            cmd : "MemberInfo",
+            id : id 
         }
         return await axios.post(KH_DOMAIN + "MemberServlet", regCmd, HEADER);
     },

@@ -51,7 +51,7 @@ const MemberInfo = () => {
         const memberData = async () => {
             setLoading(true);
             try {
-                const response = await KhApi.memberInfo();
+                const response = await KhApi.memberInfo("ALL"); // 전체 회원 조회
                 setMemberInfo(response.data);
                 console.log(response.data)
             } catch (e) {
