@@ -8,6 +8,8 @@ import '../App.css'
 const MemberInfo = () => {
     const [memberInfo, setMemberInfo] = useState('');
     const [loading, setLoading] = useState(false);
+    const isLogin = window.localStorage.getItem("isLogin");
+    if(isLogin === "FALSE") window.location.replace("/");
 
     const MemberListBlock = styled.div`
         box-sizing: border-box;

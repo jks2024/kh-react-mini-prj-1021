@@ -11,6 +11,9 @@ import KhApi from '../api/khApi';
 const GoHome = () => {
     const localId = window.localStorage.getItem("userId");
     const localPw = window.localStorage.getItem("userPw");
+    const isLogin = window.localStorage.getItem("isLogin");
+    if(isLogin === "FALSE") window.location.replace("/");
+
     const [modalOpen, setModalOpen] = useState(false);
 
     const closeModal = () => {
@@ -45,8 +48,12 @@ const GoHome = () => {
         setModalOpen(true);
     }
 
-    const onClickQRpay = () => {
-        console.log("QRpay로 이동");
+    const onClickLogout = () => {
+        console.log("Logout 추가");
+        window.localStorage.setItem("userId", "");
+        window.localStorage.setItem("userPw", "");
+        window.localStorage.setItem("isLogin", "FALSE");
+        window.location.replace("/");
     }
 
     const onClickMember = () => {
@@ -82,9 +89,9 @@ const GoHome = () => {
                     <img src={nowGo} className="imgPeer" alt="GoPeer" />
                     <span className="Peertypo">회원 탈퇴</span>
                 </div>
-                <div className="QR" onClick={onClickQRpay}>
+                <div className="QR" onClick={onClickLogout}>
                     <img src={qrPay} className="imgQrblack" alt="GoQrpay" />
-                    <span className="QRtypo">QR PAYMENT</span>
+                    <span className="QRtypo">로그아웃</span>
                 </div>
                 <div className="history" >
                    <p>회원 아이디 : {localId}</p>

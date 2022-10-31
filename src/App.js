@@ -6,7 +6,7 @@ import MemberReg from './pages/MemberReg';
 import MemberInfo from './pages/MemberInfo';
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import TopMenu from './pages/TopMenu';
+import BottomMenu from './pages/BottomMenu';
 
 function App() {
   const [isName, setIsName] = useState("0000");
@@ -20,7 +20,7 @@ function App() {
           <Route path="/MemberInfo" element={<MemberInfo />} />
           <Route path="/MemberReg" element={<MemberReg />} />
       </Routes>
-      <TopMenu/>
+      <BottomMenu/>
     </Router>
       
     </>
