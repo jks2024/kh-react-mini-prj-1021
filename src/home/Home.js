@@ -50,6 +50,8 @@ const GoHome = () => {
     };
     
     const onClickWallet = async() => {
+        console.log("Test CK");
+        window.location.replace("/TestCk");
     }
 
     const onClickEFT = () => {
@@ -93,7 +95,7 @@ const GoHome = () => {
                 <div className="linkwallet" onClick={onClickWallet}>
                     <img src={imgPhone} className="nedlogo" alt="bigN" />
                         <span className="linkwallet1">There is no wallet connected.</span>
-                        <span className="linkwallet2">+ Add Wallet</span>
+                        <span className="linkwallet2">Test CK</span>
                 </div>
                 <div className="EFT" onClick={onClickMember}>
                     <img src={nowGo} className="imgEFT" alt="GoEFT" />
