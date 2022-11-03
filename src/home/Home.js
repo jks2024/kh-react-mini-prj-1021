@@ -81,6 +81,12 @@ const GoHome = () => {
         window.location.replace("/MemberInfo");
     }
 
+    const onClickImgSend = () => {
+        //  console.log("회원 정보 설정");
+        //  window.location.replace("/MemberDetail");
+
+    }
+
     return(
         <div>
             <div className="container">
@@ -99,7 +105,7 @@ const GoHome = () => {
                 </div>
                 <div className="EFT" onClick={onClickMember}>
                     <img src={nowGo} className="imgEFT" alt="GoEFT" />
-                    <span className="EFTtypo">회원정보 조회</span>
+                    <span className="EFTtypo">전체 회원 리스트</span>
                 </div>
                 <div className="ATM" onClick={onClickMemberReg}>
                     <img src={receiptGo} className="imgATM" alt="onClickMemberReg" />
@@ -112,6 +118,10 @@ const GoHome = () => {
                 <div className="QR" onClick={onClickLogout}>
                     <img src={qrPay} className="imgQrblack" alt="GoQrpay" />
                     <span className="QRtypo">로그아웃</span>
+                </div>
+                <div className="QR" onClick={onClickImgSend}>
+                    <img src={qrPay} className="imgQrblack" alt="GoQrpay" />
+                    <span className="QRtypo">회원 정보 설정</span>
                 </div>
                 <div className="history" >
                     {memberInfo && memberInfo.map(member => (

@@ -28,8 +28,11 @@ const MemberDetail = () => {
                 <p>{member.email}</p>
                 <p>{member.join}</p>
             </div>
-            
         ))}
+        <form method="post" action="http://localhost:8100/kh_mini_ex/ImageServlet" enctype="multipart/form-data">
+            <input type="file"name="fileName"/>
+            <button type='submit'>전송</button>
+        </form>
         </div>
     )
 

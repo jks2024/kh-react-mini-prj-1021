@@ -53,8 +53,6 @@ const MemberInfo = () => {
 
     } 
     
-
-
     useEffect(() => {
         
         const memberData = async () => {
